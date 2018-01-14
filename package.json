@@ -1,0 +1,27 @@
+{
+  "name": "@stacksavings/poloniex-client",
+  "version": "1.0.0",
+  "description": "Poloniex Client",
+  "main": "poloniex-client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StackSavingsTeam/js-poloniex-client.git"
+  },
+  "author": "Stacksavings (https://site.stacksavings.com)",
+  "maintainers": [
+    "dmolina101 <dmolina101@gmail.com>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StackSavingsTeam/js-poloniex-client/issues"
+  },
+  "homepage": "https://github.com/StackSavingsTeam/js-poloniex-client#readme",
+   "dependencies" : {
+     "axios": "0.17.1",
+     "poloniex-api": "1.2.4"
+  }
+
+}

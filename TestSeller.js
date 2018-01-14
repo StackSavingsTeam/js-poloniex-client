@@ -1,6 +1,6 @@
 'use strict'
-const Seller = require('../Trader/Seller.js');
-const logger = require('../utils/Logger');
+const Seller = require('./Seller.js')
+const logger = require('@stacksavings/utils').log()
 
 const parametros = {
     'currencyPair' : 'BTC_ETH',
