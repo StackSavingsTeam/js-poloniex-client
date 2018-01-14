@@ -4,7 +4,10 @@ Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los meto
 
 ## Getting Started
 
-Para poder instalar el cliente solo basta con ejecutar el comando <b>npm i @stacksavings/poloniex-client</b>
+Para poder instalar el cliente solo basta con ejecutar el comando:
+```
+<b>npm i @stacksavings/poloniex-client</b>
+```
 
 ### Prerequisites
 
