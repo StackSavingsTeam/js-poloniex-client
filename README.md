@@ -1,6 +1,6 @@
-# Poloniex Client
+# Stacksavings - Poloniex Client
 
-One Paragraph of project description goes here
+Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar las Trading API Methods y las Public API Methods de Poloniex.
 
 ## Getting Started
 
