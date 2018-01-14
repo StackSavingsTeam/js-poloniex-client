@@ -1,6 +1,6 @@
 # Stacksavings - Poloniex Client
 
-Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los metodos de Public y Trading API de Poloniex.
+Hemos creado un paquete <b>"@stacksavings/poloniex-client"</b> para poder usar los metodos de Public y Trading API de Poloniex.
 
 ## Table of contents
 
@@ -24,6 +24,7 @@ const client = require('@stacksavings/poloniex-client')
 ### Public API Methods
 
 * <b>currenciesAvailable:</b>
+
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Returns information about currencies.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
 
@@ -36,6 +37,25 @@ currencies.then(data => {
 }, err => {
   console.log(err);
 })
+```
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Output:</b>
+
+```
+{
+  "1CR":{
+         "maxDailyWithdrawal":10000,
+         "txFee":0.01,
+         "minConf":3,
+         "disabled":0
+        },
+  "ABY":{
+         "maxDailyWithdrawal":10000000,
+         "txFee":0.01,
+         "minConf":8,
+         "disabled":0
+        },
+   ...
+}
 ```
 
 ### Trading API Methods

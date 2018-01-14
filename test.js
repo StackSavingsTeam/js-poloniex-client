@@ -3,13 +3,13 @@
 const logger = require('@stacksavings/utils').log()
 const client = require('./poloniex-client')
 
-/*const currencies = client.currenciesAvailable()
+const currencies = client.currenciesAvailable()
 currencies.then(data => {
   logger.info(data);
 }, err => {
   logger.error(err);
-})*/
-
+})
+return
 let parameters = {
   currencyPair: 'BTC_ETH',
   amount: 0.008,
