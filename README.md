@@ -5,6 +5,7 @@ Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los meto
 ## Table of contents
 
 - [Installing](#Installing)
+- [Usage](#Installing)
 - [Public API Methods](#Installing)
 - [Trading API Methods](#Installing)
 
@@ -22,7 +23,8 @@ const client = require('@stacksavings/poloniex-client')
 ```
 ### Public API Methods
 
-* <b>currenciesAvailable:</b> Returns information about currencies.
+* <b>currenciesAvailable:</b>
+Returns information about currencies.
 
 ### Trading API Methods
 
