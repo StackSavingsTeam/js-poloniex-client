@@ -196,7 +196,6 @@ buyer.then(data => {
 
 <b>Stacksavings</b>
 * <a href="https://site.stacksavings.com">https://site.stacksavings.com</a>
-* <a href="https://github.com/StackSavingsTeam">https://github.com/StackSavingsTeam</a>
 
 </br>
 
