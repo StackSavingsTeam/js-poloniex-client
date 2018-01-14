@@ -80,7 +80,7 @@ let credentials = {
 }
 
 const buyer = client.buy(parameters,credentials)
-seller.then(data => {
+buyer.then(data => {
   console.log(data);
 }, err => {
   console.log(err);
