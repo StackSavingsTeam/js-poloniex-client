@@ -2,6 +2,10 @@
 
 Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los metodos de Public y Trading API de Poloniex.
 
+## Table of contents
+
+- [Installing](#Installing)
+
 ## Getting Started
 
 ### Installing
