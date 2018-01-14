@@ -1,10 +1,10 @@
 # Stacksavings - Poloniex Client
 
-Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar las Trading API Methods y las Public API Methods de Poloniex.
+Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los metodos de Public y Trading API de Poloniex.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Para poder instalar el cliente solo basta con ejecutar el comando <b>npm i @stacksavings/poloniex-client</b>
 
 ### Prerequisites
 
