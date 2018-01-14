@@ -16,8 +16,8 @@ let parameters = {
   rate: 0.058,
 }
 let credentials = {
-  key: '',
-  secret: ''
+  key: '90NIRFQJ-BP27VWL6-M52RFCB3-Q2OS9B49',
+  secret: 'c676c5ac9e7d82200c679e78568d6461856a7c150a6bedca1178753cde439d9d5aa7d3822043a69f309d9a3cb543593a302a8c26e16674150ae4f84d7812475c'
 }
 
 const seller = client.buy(parameters,credentials)
