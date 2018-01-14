@@ -5,6 +5,8 @@ Hemos creado un paquete "@stacksavings/poloniex-client" para poder usar los meto
 ## Table of contents
 
 - [Installing](#Installing)
+- [Public API Methods](#Installing)
+- [Trading API Methods](#Installing)
 
 ## Getting Started
 
@@ -15,6 +17,10 @@ npm i @stacksavings/poloniex-client
 ```
 
 ### Public API Methods
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+
+### Trading API Methods
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 
