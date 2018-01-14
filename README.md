@@ -15,7 +15,12 @@ Para poder instalar el cliente solo basta con ejecutar el comando:
 ```
 npm i @stacksavings/poloniex-client
 ```
-
+### Usage
+Para empezar a usarlo solo debe de incluirlo en tu código asi:
+```
+const client = require('./poloniex-client')
+npm i @stacksavings/poloniex-client
+```
 ### Public API Methods
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
