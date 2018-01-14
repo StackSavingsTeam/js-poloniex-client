@@ -39,7 +39,6 @@ currencies.then(data => {
 })
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Output:</b>
-
 ```
 {
   "1CR":{
