@@ -62,7 +62,46 @@ Estos métodos requieren el <b>"Key"</b> y <b>"Secret"</b> asociado a la organiz
 </br>
 
 * <b>buy:</b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Coloca una orden de compra límite en un mercado determinado. Los parámetros de POST necesarios son "currencyPair", "rate" y "amount". Si tiene éxito, el método devolverá el número de orden.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Coloca una orden de compra límite en un mercado determinado. Los parámetros necesarios son "currencyPair", "rate" y "amount". Si tiene éxito, el método devolverá el número de orden.</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
+
+```
+const client = require(@stacksavings/poloniex-client)
+
+let parameters = {
+  currencyPair: 'BTC_ETH',
+  amount: 0.008,
+  rate: 0.058,
+}
+let credentials = {
+  key: 'KEY STRING',
+  secret: 'SECRET STRING'
+}
+
+const buyer = client.buy(parameters,credentials)
+seller.then(data => {
+  console.log(data);
+}, err => {
+  console.log(err);
+})
+```
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Output:</b>
+```
+{
+  "orderNumber":31226040,
+  "resultingTrades":[
+                     {
+                      "amount":"338.8732",
+                      "date":"2014-10-18 23:03:21",
+                      "rate":"0.00000173",
+                      "total":"0.00058625",
+                      "tradeID":"16164",
+                      "type":"buy"
+                     }
+                    ]
+}
+```
 
 ## Running the tests
 
