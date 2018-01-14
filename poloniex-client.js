@@ -10,7 +10,7 @@ module.exports.currenciesAvailable = async () => {
   const axios = require('axios')
   try {
     const currencies = await axios.get('https://poloniex.com/public?command=returnCurrencies')
-    return currencies
+    return currencies.data
   } catch (err) {
     return err
   }

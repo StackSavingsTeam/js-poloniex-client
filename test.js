@@ -10,7 +10,7 @@ currencies.then(data => {
   logger.error(err);
 })
 return
-let parameters = {
+let parameters = { 
   currencyPair: 'BTC_ETH',
   amount: 0.008,
   rate: 0.058,

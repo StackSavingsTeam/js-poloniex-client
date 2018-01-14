@@ -58,9 +58,11 @@ currencies.then(data => {
 ```
 
 ### Trading API Methods
+Estos métodos requieren el <b>"Key"</b> y <b>"Secret"</b> asociado a la organización Stacksavings.
+</br>
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-
+* <b>buy:</b>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Coloca una orden de compra límite en un mercado determinado. Los parámetros de POST necesarios son "currencyPair", "rate" y "amount". Si tiene éxito, el método devolverá el número de orden.</p>
 
 ## Running the tests
 
