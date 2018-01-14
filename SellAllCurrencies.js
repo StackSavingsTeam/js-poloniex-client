@@ -4,14 +4,14 @@ const Seller = require('../Trader/Seller.js'); //aca llamamos al modulo para ven
 const logger = require('../utils/Logger'); //lamada al modulo de logs
 
 const TradingApi = require('poloniex-api').tradingApi;
-const tradingApi = TradingApi.create("I7JZE7RO-CMGT6FZG-D40UVJ07-C6WJ486D", "e9f4de47603e23e02bb580efdaae278e2e7b46027a8222859fbc9df7677c40e520599abb6694755a72acec9bed98f2240b118c0e6ebf260007efae941935987f");
+const tradingApi = TradingApi.create("", "");
 
 const CurrenciesAvailable = require('../DataCollection/CurrenciesAvailablePoloniex');
 
 /* Descripcion
 El objetivo es obtener los cod currencie y con estos obtener los balances por cada codigo
  si el saldo (BTC) es mayor a cero , se podra realizar la venta.
- por el momento solo se podran efectuar 2 ventas por cada una disponible 
+ por el momento solo se podran efectuar 2 ventas por cada una disponible
 
  */
 
@@ -19,10 +19,10 @@ El objetivo es obtener los cod currencie y con estos obtener los balances por ca
 
 
     const data = CurrenciesAvailable.getCurrenciesFromPoloniex();
-    
+
     data.then(data => {
    logger.info(data)
-  
+
     //iterando cada currencie obtenida
     for (var clave in data) {
         //por cada currencie se hace la llamada al metodo para obtener el balance de esta
@@ -31,7 +31,7 @@ El objetivo es obtener los cod currencie y con estos obtener los balances por ca
             if (err) {
                 console.log(err);
             }
-            //si todo resulta bien obtenemos el balance 
+            //si todo resulta bien obtenemos el balance
             else {
                 //el metodo nos devuelve un json del balance
                 var contador = 0;
@@ -56,12 +56,8 @@ El objetivo es obtener los cod currencie y con estos obtener los balances por ca
             }
         });
     }
-  
-  
+
+
 }, err => {
   logger.error(err)
 });
-
-
-
-
