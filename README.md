@@ -22,7 +22,7 @@ const client = require('@stacksavings/poloniex-client')
 ```
 ### Public API Methods
 
-* <b>currenciesAvailable:</b>
+* <b>currenciesAvailable:</b> Returns information about currencies.
 
 ### Trading API Methods
 
