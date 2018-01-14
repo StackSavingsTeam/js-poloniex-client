@@ -80,7 +80,7 @@ let parameters = {
 }
 
 const ChartData = client.returnChartData(parameters)
-currencies.then(data => {
+ChartData.then(data => {
   logger.info(data);
 }, err => {
   logger.error(err);
@@ -192,3 +192,13 @@ buyer.then(data => {
                     ]
 }
 ```
+### Creators
+
+<b>Stacksavings</b>
+* <a href="https://site.stacksavings.com">https://site.stacksavings.com</a>
+* <a href="https://github.com/StackSavingsTeam">https://github.com/StackSavingsTeam</a>
+
+</br>
+
+<b>David Molina</b>
+* <a href="https://dmolina101.github.io">https://dmolina101.github.io</a>

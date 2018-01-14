@@ -20,7 +20,7 @@ module.exports.returnChartData = async (parameters) => {
   const axios = require('axios')
   try {
     const ChartData = await axios.get(`https://poloniex.com/public?command=returnChartData&currencyPair=${parameters.currencyPair}&start=${parameters.start}&end=${parameters.end}&period=${parameters.period}`)
-    return ChartData
+    return ChartData.data
   } catch (err) {
     return err
   }
