@@ -9,8 +9,18 @@ function tradingApi(credentials){
 module.exports.currenciesAvailable = async () => {
   const axios = require('axios')
   try {
-    const currencies = await axios.get('https://poloniex.com/public?command=returnCurrencies')
+    const currencies = await axios.get(`https://poloniex.com/public?command=returnCurrencies`)
     return currencies.data
+  } catch (err) {
+    return err
+  }
+}
+
+module.exports.returnChartData = async (parameters) => {
+  const axios = require('axios')
+  try {
+    const ChartData = await axios.get(`https://poloniex.com/public?command=returnChartData&currencyPair=${parameters.currencyPair}&start=${parameters.start}&end=${parameters.end}&period=${parameters.period}`)
+    return ChartData
   } catch (err) {
     return err
   }
