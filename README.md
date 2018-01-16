@@ -108,7 +108,7 @@ Estos métodos requieren el <b>"Key"</b> y <b>"Secret"</b> asociado a la organiz
 </br>
 
 * <b>buy:</b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Coloca una orden de compra límite en un mercado determinado. Los parámetros necesarios son "currencyPair", "rate" y "amount". Si tiene éxito, el método devolverá el número de orden.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Places a limit buy order in a given market. Required POST parameters are "currencyPair", "rate", and "amount". If successful, the method will return the order number.</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
 
@@ -151,7 +151,7 @@ buyer.then(data => {
 ```
 
 * <b>sell:</b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Coloca una orden de venta en un mercado determinado. Los parámetros necesarios son "currencyPair", "rate" y "amount". Si tiene éxito, el método devolverá el número de orden.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Places a sell order in a given market. Parameters and output are the same as for the buy method.</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
 
@@ -170,7 +170,7 @@ let credentials = {
 }
 
 const seller = client.sell(parameters,credentials)
-buyer.then(data => {
+seller.then(data => {
   logger.info(data);
 }, err => {
   logger.error(err);
@@ -190,6 +190,36 @@ buyer.then(data => {
                       "type":"sell"
                      }
                     ]
+}
+```
+
+* <b>returnBalances:</b>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Returns all of your available balances.</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
+
+```
+const logger = require('@stacksavings/utils').log()
+const client = require(@stacksavings/poloniex-client)
+
+let credentials = {
+  key: 'KEY STRING',
+  secret: 'SECRET STRING'
+}
+
+const balances = client.sell(credentials)
+balances.then(data => {
+  logger.info(data);
+}, err => {
+  logger.error(err);
+})
+```
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Output:</b>
+```
+{
+  "BTC":"0.59098578",
+  "LTC":"3.31117268",
+  ...
 }
 ```
 ### Creators

@@ -57,3 +57,13 @@ module.exports.buy = (parameters,credentials) => {
     });
   })
 }
+
+module.exports.returnBalances = async (credentials) => {
+  const axios = require('axios')
+  try {
+    const ChartData = await axios.get(`https://poloniex.com/public?command=returnChartData`)
+    return ChartData.data
+  } catch (err) {
+    return err
+  }
+}
