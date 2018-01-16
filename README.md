@@ -207,7 +207,7 @@ let credentials = {
   secret: 'SECRET STRING'
 }
 
-const balances = client.sell(credentials)
+const balances = client.returnBalances(credentials)
 balances.then(data => {
   logger.info(data);
 }, err => {
@@ -222,6 +222,41 @@ balances.then(data => {
   ...
 }
 ```
+* <b>returnCompleteBalances:</b>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Returns all of your balances, including available balance, balance on orders, and the estimated BTC value of your balance. By default, this call is limited to your exchange account; set the "account" POST parameter to "all" to include your margin and lending accounts.</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Example to call it:</b>
+
+```
+const logger = require('@stacksavings/utils').log()
+const client = require(@stacksavings/poloniex-client)
+
+let credentials = {
+  key: 'KEY STRING',
+  secret: 'SECRET STRING'
+}
+
+const balances = client.returnCompleteBalances(credentials)
+balances.then(data => {
+  logger.info(data);
+}, err => {
+  logger.error(err);
+})
+```
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Output:</b>
+```
+{
+  "LTC":
+    {
+      "available":"5.015",
+      "onOrders":"1.0025",
+      "btcValue":"0.078"
+    },
+  "NXT:{...} 
+  ...
+}
+```
+
 ### Creators
 
 <b>Stacksavings</b>

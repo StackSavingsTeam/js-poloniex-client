@@ -59,11 +59,33 @@ module.exports.buy = (parameters,credentials) => {
 }
 
 module.exports.returnBalances = async (credentials) => {
-  const axios = require('axios')
-  try {
-    const ChartData = await axios.get(`https://poloniex.com/public?command=returnChartData`)
-    return ChartData.data
-  } catch (err) {
-    return err
-  }
+  return new Promise((resolve, reject) => {
+    const trading = tradingApi(credentials)
+    trading.returnBalances()
+    .then( data => {
+      return resolve({
+        response: JSON.parse(data.body)
+      });
+    }, err => {
+      return reject({
+        response: 'Error when getting balances'
+      });
+    });
+  })
+}
+
+module.exports.returnCompleteBalances = async (credentials) => {
+  return new Promise((resolve, reject) => {
+    const trading = tradingApi(credentials)
+    trading.returnCompleteBalances()
+    .then( data => {
+      return resolve({
+        response: JSON.parse(data.body)
+      });
+    }, err => {
+      return reject({
+        response: 'Error when getting balances'
+      });
+    });
+  })
 }
