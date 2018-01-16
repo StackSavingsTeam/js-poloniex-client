@@ -19,9 +19,8 @@
     "url": "https://github.com/StackSavingsTeam/js-poloniex-client/issues"
   },
   "homepage": "https://github.com/StackSavingsTeam/js-poloniex-client#readme",
-   "dependencies" : {
-     "axios": "0.17.1",
-     "poloniex-api": "1.2.4"
+  "dependencies": {
+    "axios": "0.17.1",
+    "poloniex-api": "1.2.4"
   }
-
 }
