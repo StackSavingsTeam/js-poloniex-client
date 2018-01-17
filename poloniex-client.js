@@ -103,7 +103,7 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
       },
       data:{
         command: 'returnOpenOrders',
-        nonce: nonce,
+        nonce: nonce(),
         currencyPair: currencyPair
       }
     })
@@ -130,7 +130,7 @@ module.exports.cancelOrder = async (orderNo, credentials) => {
       },
       data:{
         command: 'cancelOrder',
-        nonce: nonce,
+        nonce: nonce(),
         orderNumber: orderNo
       }
     })
