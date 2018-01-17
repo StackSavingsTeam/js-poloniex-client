@@ -106,7 +106,7 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
       }
     })
     return {
-      response: JSON.parse(post.data)
+      response: JSON.parse(post)
     }
   } catch(err){
     return {
