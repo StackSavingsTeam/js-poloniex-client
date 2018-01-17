@@ -92,6 +92,7 @@ module.exports.returnCompleteBalances = async (credentials) => {
 
 module.exports.returnOpenOrders = async (currencyPair, credentials) => {
   const axios = require('axios')
+  const nonce = require('nonce')()
   try{
     const post = await axios({
       url: 'https://poloniex.com/tradingApi',
@@ -102,6 +103,7 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
       },
       data:{
         command: 'returnOpenOrders',
+        nonce: nonce,
         currencyPair: currencyPair
       }
     })
@@ -117,6 +119,7 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
 
 module.exports.cancelOrder = async (orderNo, credentials) => {
   const axios = require('axios')
+  const nonce = require('nonce')()
   try{
     const post = await axios({
       url: 'https://poloniex.com/tradingApi',
@@ -127,6 +130,7 @@ module.exports.cancelOrder = async (orderNo, credentials) => {
       },
       data:{
         command: 'cancelOrder',
+        nonce: nonce,
         orderNumber: orderNo
       }
     })

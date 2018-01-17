@@ -1,2 +1,3 @@
-var n = require('nonce')();
-console.log(n());
+'use strict'
+const n = require('nonce')()
+console.log(n())
