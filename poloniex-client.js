@@ -91,30 +91,19 @@ module.exports.returnCompleteBalances = async (credentials) => {
 }
 
 module.exports.returnOpenOrders = async (currencyPair, credentials) => {
-  const axios = require('axios')
-  const nonce = require('nonce')()
-  try{
-    const post = await axios({
-      url: 'https://poloniex.com/tradingApi',
-      method: 'post',
-      headers:{
-        Key: credentials.key,
-        Sign: credentials.secret
-      },
-      data:{
-        command: 'returnOpenOrders',
-        nonce: nonce(),
-        currencyPair: currencyPair
-      }
-    })
-    return {
-      response: JSON.parse(post)
-    }
-  } catch(err){
-    return {
-      response: err
-    }
-  }
+  return new Promise((resolve, reject) => {
+    const trading = tradingApi(credentials)
+    trading.returnOpenOrders(currencyPair)
+    .then( data => {
+      return resolve({
+        response: JSON.parse(data.body)
+      });
+    }, err => {
+      return reject({
+        response: 'Error when getting balances'
+      });
+    });
+  })
 }
 
 module.exports.cancelOrder = async (orderNo, credentials) => {
