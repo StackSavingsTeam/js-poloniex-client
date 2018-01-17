@@ -121,3 +121,13 @@ module.exports.cancelOrder = async (orderNo, credentials) => {
     });
   })
 }
+
+module.exports.returnOrderBook = async (currencyPair) => {
+  const axios = require('axios')
+  try {
+    const orderBook = await axios.get('https://poloniex.com/public?command=returnOrderBook&currencyPair='+currencyPair)
+    return orderBook.data
+  } catch (err) {
+    return err
+  }
+}
