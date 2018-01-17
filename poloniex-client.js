@@ -107,7 +107,7 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
     })
     .then( orders => {
       return resolve({
-        response: JSON.parse(orders)
+        response: JSON.parse(orders.body)
       })
     }, err =>{
       return reject({
@@ -134,7 +134,7 @@ module.exports.cancelOrder = async (orderNo, credentials) => {
     })
     .then( res => {
       return resolve({
-        response: JSON.parse(res)
+        response: JSON.parse(res.body)
       })
     }, err =>{
       return reject({
