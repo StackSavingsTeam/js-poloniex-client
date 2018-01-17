@@ -93,53 +93,55 @@ module.exports.returnCompleteBalances = async (credentials) => {
 module.exports.returnOpenOrders = async (currencyPair, credentials) => {
   return new Promise((resolve, reject) => {
     const axios = require('axios')
-    axios({
-      url: 'https://poloniex.com/tradingApi',
-      method: 'post',
-      headers:{
-        Key: credentials.key,
-        Sign: credentials.secret
-      },
-      data:{
-        command: 'returnOpenOrders',
-        currencyPair: currencyPair
-      }
-    })
-    .then( orders => {
-      return resolve({
-        response: JSON.parse(orders.body)
+    try{
+      const post = await axios({
+        url: 'https://poloniex.com/tradingApi',
+        method: 'post',
+        headers:{
+          Key: credentials.key,
+          Sign: credentials.secret
+        },
+        data:{
+          command: 'returnOpenOrders',
+          currencyPair: currencyPair
+        }
       })
-    }, err =>{
-      return reject({
-        response: 'Error when getting OpenOrders'
+      resolve({
+        response: JSON.parse(post.data)
       })
-    })
+
+    } catch(err){
+      reject({
+        response: err
+      })
+    }
   })
 }
 
 module.exports.cancelOrder = async (orderNo, credentials) => {
   return new Promise((resolve, reject) => {
     const axios = require('axios')
-    axios({
-      url: 'https://poloniex.com/tradingApi',
-      method: 'post',
-      headers:{
-        Key: credentials.key,
-        Sign: credentials.secret
-      },
-      data:{
-        command: 'cancelOrder',
-        currencyPair: currencyPair
-      }
-    })
-    .then( res => {
-      return resolve({
-        response: JSON.parse(res.body)
+    try{
+      const post = await axios({
+        url: 'https://poloniex.com/tradingApi',
+        method: 'post',
+        headers:{
+          Key: credentials.key,
+          Sign: credentials.secret
+        },
+        data:{
+          command: 'cancelOrder',
+          orderNumber: orderNo
+        }
       })
-    }, err =>{
-      return reject({
-        response: 'Error when cancel OpenOrders'
+      resolve({
+        response: JSON.parse(post.data)
       })
-    })
+
+    } catch(err){
+      reject({
+        response: err
+      })
+    }
   })
 }
