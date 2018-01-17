@@ -89,3 +89,19 @@ module.exports.returnCompleteBalances = async (credentials) => {
     });
   })
 }
+
+module.exports.returnOpenOrders = async (currencyPair, credentials) => {
+  return new Promise((resolve, reject) => {
+    const trading = tradingApi(credentials)
+    trading.returnOpenOrders(currencyPair)
+    .then( data => {
+      return resolve({
+        response: JSON.parse(data.body)
+      });
+    }, err => {
+      return reject({
+        response: 'Error when getting OpenOrders'
+      });
+    });
+  })
+}
