@@ -91,57 +91,52 @@ module.exports.returnCompleteBalances = async (credentials) => {
 }
 
 module.exports.returnOpenOrders = async (currencyPair, credentials) => {
-  return new Promise((resolve, reject) => {
-    const axios = require('axios')
-    try{
-      const post = await axios({
-        url: 'https://poloniex.com/tradingApi',
-        method: 'post',
-        headers:{
-          Key: credentials.key,
-          Sign: credentials.secret
-        },
-        data:{
-          command: 'returnOpenOrders',
-          currencyPair: currencyPair
-        }
-      })
-      resolve({
-        response: JSON.parse(post.data)
-      })
-
-    } catch(err){
-      reject({
-        response: err
-      })
+  const axios = require('axios')
+  try{
+    const post = await axios({
+      url: 'https://poloniex.com/tradingApi',
+      method: 'post',
+      headers:{
+        Key: credentials.key,
+        Sign: credentials.secret
+      },
+      data:{
+        command: 'returnOpenOrders',
+        currencyPair: currencyPair
+      }
+    })
+    return {
+      response: JSON.parse(post.data)
     }
-  })
+  } catch(err){
+    return {
+      response: err
+    }
+  }
 }
 
 module.exports.cancelOrder = async (orderNo, credentials) => {
-  return new Promise((resolve, reject) => {
-    const axios = require('axios')
-    try{
-      const post = await axios({
-        url: 'https://poloniex.com/tradingApi',
-        method: 'post',
-        headers:{
-          Key: credentials.key,
-          Sign: credentials.secret
-        },
-        data:{
-          command: 'cancelOrder',
-          orderNumber: orderNo
-        }
-      })
-      resolve({
-        response: JSON.parse(post.data)
-      })
-
-    } catch(err){
-      reject({
-        response: err
-      })
+  const axios = require('axios')
+  try{
+    const post = await axios({
+      url: 'https://poloniex.com/tradingApi',
+      method: 'post',
+      headers:{
+        Key: credentials.key,
+        Sign: credentials.secret
+      },
+      data:{
+        command: 'cancelOrder',
+        orderNumber: orderNo
+      }
+    })
+    return {
+      response: JSON.parse(post.data)
     }
-  })
+
+  } catch(err){
+    return {
+      response: err
+    }
+  }
 }
