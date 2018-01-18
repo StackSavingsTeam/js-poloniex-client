@@ -131,3 +131,20 @@ module.exports.returnOrderBook = async (currencyPair) => {
     return err
   }
 }
+
+module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
+  const _ = require('lodash')
+  return new Promise((resolve, reject) => {
+    this.returnOrderBook(currencyPair)
+      .then(data => {
+        const typeOrder = type === 'buy' ? 'asks' : 'bids'
+        const filters = _.filter(data[typeOrder], (item) =>{
+          return item[1] >= volume
+        })
+        const result = _.minBy(filters, (min) =>  min[1] )
+        resolve(result[0])
+      }, err => {
+        reject(err)    
+      })
+  })
+}
