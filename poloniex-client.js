@@ -30,15 +30,16 @@ module.exports.sell = (parameters,credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.sell(parameters)
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when trying to sell'
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch(err => {
+        return reject({
+          response: 'Error when trying to sell'
+        })
+      })
   })
 }
 
@@ -46,15 +47,16 @@ module.exports.buy = (parameters,credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.buy(parameters)
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when trying to buy'
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch( err => {
+        return reject({
+          response: 'Error when trying to buy'
+        })
+      })
   })
 }
 
@@ -62,15 +64,16 @@ module.exports.returnBalances = async (credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.returnBalances()
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when getting balances'
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch( err => {
+        return reject({
+          response: 'Error when getting balances'
+        })
+      })
   })
 }
 
@@ -78,15 +81,16 @@ module.exports.returnCompleteBalances = async (credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.returnCompleteBalances()
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when getting balances'
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch( err => {
+        return reject({
+          response: 'Error when getting balances'
+        })
+      })
   })
 }
 
@@ -94,15 +98,16 @@ module.exports.returnOpenOrders = async (currencyPair, credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.returnOpenOrders(currencyPair)
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when getting OpenOrders'
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch( err => {
+        return reject({
+          response: 'Error when getting OpenOrders'
+        })
+      })
   })
 }
 
@@ -110,15 +115,16 @@ module.exports.cancelOrder = async (orderNo, credentials) => {
   return new Promise((resolve, reject) => {
     const trading = tradingApi(credentials)
     trading.cancelOrder(orderNo)
-    .then( data => {
-      return resolve({
-        response: JSON.parse(data.body)
-      });
-    }, err => {
-      return reject({
-        response: 'Error when cancel order number: '+orderNo
-      });
-    });
+      .then( data => {
+        return resolve({
+          response: JSON.parse(data.body)
+        })
+      })
+      .catch( err => {
+        return reject({
+          response: 'Error when cancel order number: '+orderNo
+        })
+      })
   })
 }
 
@@ -143,7 +149,8 @@ module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
         })
         const result = _.minBy(filters, (min) =>  min[1] )
         resolve(result[0])
-      }, err => {
+      })
+      .catch( err => {
         reject(err)    
       })
   })
