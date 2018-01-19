@@ -144,22 +144,26 @@ module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
     if(type == 'buy' || type == 'sell'){
       this.returnOrderBook(currencyPair)
         .then(data => {
-          const typeOrder = type === 'buy' ? 'asks' : 'bids'
-          const filters = _.filter(data[typeOrder], (item) => {
-            return item[1] >= volume
-          })
-
-          if(type == 'buy'){
-            var result = _.minBy(filters, (min) => min[0] )
+          if(typeof data.error != 'undefined'){
+            return reject({ error:data.error })
           }else{
-            var result = _.maxBy(filters, (max) => max[0] )
+            const typeOrder = type === 'buy' ? 'asks' : 'bids'
+            const filters = _.filter(data[typeOrder], (item) => {
+              return item[1] >= volume
+            })
+
+            if(type == 'buy'){
+              var result = _.minBy(filters, (min) => min[0] )
+            }else{
+              var result = _.maxBy(filters, (max) => max[0] )
+            }
+            return resolve({precie: result[0], volume: result[1]})
           }
-          return resolve({precie: result[0], volume: result[1]})
         }, err =>{
-          return reject({ response:err })
+          return reject({ error:err })
         })
     }else{
-      return reject({ response: 'The variable "type" can only have the value of "buy" or "sell"' })
+      return reject({ error: 'The variable "type" can only have the value of "buy" or "sell"' })
     }
   })
 }
