@@ -141,24 +141,25 @@ module.exports.returnOrderBook = async (currencyPair) => {
 module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
   const _ = require('lodash')
   return new Promise((resolve, reject) => {
-    this.returnOrderBook(currencyPair)
-      .then(data => {
-        const typeOrder = type === 'buy' ? 'asks' : 'bids'
-        if(data[typeOrder] === undefined)
-          reject({ error: 'No contain data for '+currencyPair})
-        const filters = _.filter(data[typeOrder], (item) =>{
-          return item[1] >= volume
+    if(type == 'buy' || type == 'sell'){
+      this.returnOrderBook(currencyPair)
+        .then(data => {
+          const typeOrder = type === 'buy' ? 'asks' : 'bids'
+          const filters = _.filter(data[typeOrder], (item) => {
+            return item[1] >= volume
+          })
+
+          if(type == 'buy'){
+            var result = _.minBy(filters, (min) => min[0] )
+          }else{
+            var result = _.maxBy(filters, (max) => max[0] )
+          }
+          return resolve({precie: result[0], volume: result[1]})
+        }, err =>{
+          return reject({ response:err })
         })
-        const result = _.minBy(filters, (min) =>  min[1] )
-        console.log('parametros', currencyPair, type, volume)
-        console.log('tipoOrden',typeOrder)
-        console.log('data[]', data[typeOrder])
-        console.log('filters',filters)
-        console.log('result', result)        
-        resolve(result[0])
-      })
-      .catch( err => {
-        reject(err)    
-      })
+    }else{
+      return reject({ response: 'The variable "type" can only have the value of "buy" or "sell"' })
+    }
   })
 }
