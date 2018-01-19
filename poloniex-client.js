@@ -144,10 +144,17 @@ module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
     this.returnOrderBook(currencyPair)
       .then(data => {
         const typeOrder = type === 'buy' ? 'asks' : 'bids'
+        if(data[typeOrder] === undefined)
+          reject({ error: 'No contain data for '+currencyPair})
         const filters = _.filter(data[typeOrder], (item) =>{
           return item[1] >= volume
         })
         const result = _.minBy(filters, (min) =>  min[1] )
+        console.log('parametros', currencyPair, type, volume)
+        console.log('tipoOrden',typeOrder)
+        console.log('data[]', data[typeOrder])
+        console.log('filters',filters)
+        console.log('result', result)        
         resolve(result[0])
       })
       .catch( err => {
