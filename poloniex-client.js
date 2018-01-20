@@ -34,7 +34,7 @@ module.exports.sell = (parameters,credentials) => {
         return resolve({
           response: JSON.parse(data.body)
         })
-      })  
+      })
       .catch(err => {
         return reject({
           response: 'Error when trying to sell'
