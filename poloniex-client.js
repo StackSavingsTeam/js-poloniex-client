@@ -152,10 +152,10 @@ module.exports.determinePriceCurrency = (currencyPair, type, volume) => {
               return item[1] >= volume
             })
 
-            if(type == 'buy'){
-              var result = _.minBy(filters, (min) => min[0] )
-            }else{
+            if(typeOrder == 'buy'){
               var result = _.maxBy(filters, (max) => max[0] )
+            }else{
+              var result = _.minBy(filters, (min) => min[0] )
             }
             return resolve({precie: result[0], volume: result[1]})
           }
