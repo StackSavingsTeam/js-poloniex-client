@@ -1,10 +1,10 @@
 {
   "name": "@stacksavings/poloniex-client",
-  "version": "1.1.29",
+  "version": "1.1.30",
   "description": "Poloniex Client",
   "main": "poloniex-client.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,9 @@
     "lodash": "^4.17.4",
     "nonce": "^1.0.4",
     "poloniex-api": "1.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
   }
 }
